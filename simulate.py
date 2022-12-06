@@ -229,9 +229,12 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,
         
     plt.figure()
     plt.plot(loops,zeros,label="0th order efficiency")   #simulated 0th orders at varying depths
-    plt.plot(loops,firstxs,label="1st order efficiency - x direction")  #simulated 1st orders at varying depths
+    plt.plot(loops, firstys, label="1st order efficiency - y direction")
     #plt.scatter(loops,firstys,label="1st order efficiency - y direction")
-    plt.plot(loops,diags,label="diagonal efficiency modes")
+    if gType != "Rectangular":
+        plt.plot(loops,firstxs,label="1st order efficiency - x direction")  #simulated 1st orders at varying depths
+
+        plt.plot(loops,diags,label="diagonal efficiency modes")
     plt.ylabel("Intensity")
     plt.xlabel(f"{loop}")
     plt.legend(loc='upper left', bbox_to_anchor=(1.05, 1))
