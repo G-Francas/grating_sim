@@ -74,7 +74,7 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,
 
     #Creating basic layers
     reflectionLayer = Layer(er=1.0006, ur=1, L=10000)
-    baseLayer = Layer(er=er_si,ur=1, L=10000)
+    baseLayer = Layer(er=er,ur=1, L=10000)
     source = Source(wavelength=wavelength, theta=theta, phi=phi,pTEM=pTEM, layer=reflectionLayer)
 
     if gType == 'Checkerboard':
