@@ -43,37 +43,30 @@ def Slopecsv(res,theta,depthF, material, gType, er, path): #depth is fraction of
 
   arr=np.ones([res,res])
   Uarr=arr
+  np.savetxt(f'{path}/csvs/U{res}.csv', Uarr, delimiter=',')
+
   arr=(1+0j)*arr
   print(theta)
   if theta > 0:
       thetaR=np.deg2rad(theta)
       nLayer=int(np.divide(2,3)*res*depthF*np.tan(thetaR))
       arrE=er*arr
-      arrU=mat_u*arr
       count=0
       i=0
       j=int(res/4)
       print(f'creating {nLayer} csv files for simulation...\n')
       while count <= nLayer:
         arrE=er*arr
-        arrU=mat_u*arr
         i=0
         j=int(res/4+count)
         #permittivity
         while i <res:
             while j >= res/4+count and j < 3*res/4-count: 
                 arrE[i,j]=e
-                arrU[i,j]=u
                 j=j+1
             j=int(res/4+count)
-            i=i+1
-            
-            
+            i=i+1   
         np.savetxt(f'{path}/csvs/{gType}_{material}_slope{90-theta}_{depthF}_layer{count}_{res}.csv', arrE, delimiter=',')
-        np.savetxt(f'{path}/csvs/U{res}.csv', Uarr, delimiter=',')
-    
-        
-    
         count=count+1
   elif theta ==0:
     count=0
