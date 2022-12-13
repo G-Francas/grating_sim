@@ -9,7 +9,8 @@ def Slopecsv(res,theta,depthF, material, gType, er, path): #depth is fraction of
   ##refractive index vals at 400nm
   Air_n = 1.000536
   Si_n = 5.623
-  Al_n = 0.375150842
+  Al_n = 0.48787
+  #Al_n = 0.375150842
   Ag_n = 0.04572895
  
 
@@ -18,20 +19,25 @@ def Slopecsv(res,theta,depthF, material, gType, er, path): #depth is fraction of
   #extinction coefficient vals at 400nm
   Air_k = 1.00000037
   Si_k = 0.326
-  Al_k= 4.226433266
+  Al_k = 4.8355
+  #Al_k= 4.226433266
   Ag_k = 2.122943979
+  print(f"Grating Material {material}, test test")
 
+  er_si=(Si_n)**2-(Si_k)**2+2*Si_n*Si_k*1j
   if material == 'Silicon':
-    mat_e=np.square(Si_n)
-    print('grating material = silicon')
+      er=er_si
   elif material == 'Aluminium':
-    mat_e=np.square(Al_n)
-    print('grating material = aluminium')
-
+      er=(Al_n)**2-(Al_k)**2+2*Al_n*Al_k*1j
   elif material == 'Silver':
-    mat_e=np.square(Ag_n)
-    print('grating material = silver')
+      er=(Ag_n)**2-(Ag_k)**2+2*Ag_n*Ag_k*1j
+  elif material == 'Gold':
+      er=(Au_n)**2-(Au_k)**2+2*Au_n*Au_k*1j
+  elif material == 'Titanium':
+      er=(Ti_n)**2-(Ti_k)**2+2*Ti_n*Ti_k*1j
   mat_u=1
+  
+  #values for air
   e=1.0006
   u= 1
 
@@ -40,7 +46,6 @@ def Slopecsv(res,theta,depthF, material, gType, er, path): #depth is fraction of
   arr=(1+0j)*arr
   print(theta)
   if theta > 0:
-      print(f"slopey")
       thetaR=np.deg2rad(theta)
       nLayer=int(np.divide(2,3)*res*depthF*np.tan(thetaR))
       arrE=er*arr
