@@ -132,6 +132,35 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,
             elif gType == "Blazed":
                 print(f"Creating layers for blazed grating of blaze angle {slope} degrees...\n")
                 nLayers = Blazedcsv(res,slope,depthF, material, gType, er, path)
+                
+        else:
+            if gType == 'Checkerboard':
+                print("Creating layers for checkerboard simulation...\n")
+                nLayers=Check(res,er, material, gType, path)
+            if gType == 'Rectangular' and slope == 0:
+                print("Creating layers for rectangular simulation with vertical sidewalls...\n")
+                nLayers = Slopecsv(res,slope,depthF, material, gType, er, path)
+
+            if gType == 'Square':
+               print("Creating layers for square simulation...\n")
+               nLayers=Square(res,er, material, gType, path) 
+            if gType == 'CoatedChecker':
+               print("Creating layers for coated checkerboard simulation...\n")
+               nLayers=CheckCoat(res,er,material,gType, er_si, path)
+            if gType == 'CheckerError':
+                err=input("What percentage error would you like on the checkerboard? Please enter as a decimal, eg 0.3 for 30% error.")
+                print(f"Creating layers for checkerboard simulation with error {err}...\n")
+                nLayers=CheckErr(res,er, material, gType, err, path)
+            if gType=='CheckDiag':
+                print(f"Creating layers for checkerboard simulation on diagonal...\n")
+                nLayers=CheckDiag(res,er,material,gType, path)
+            if gType=='CheckDiagErr':
+                err=input("What percentage error would you like on the checkerboard? Please enter as a decimal, eg 0.3 for 30% reduction in square size.")
+                print(f"Creating layers for checkerboard simulation with error {err}...\n")
+                nLayers=CheckDiagErr(res,er, material, gType, err, path)
+            if gType=='Circ':
+                print(f"Creating layers for circular grating simulation...\n")
+                nLayers=Circ(res,er,material,gType, path)
         #set period in each direction
         t1, t2 = complexArray([period, 0, 0]), complexArray([0, period, 0])
         n=0
