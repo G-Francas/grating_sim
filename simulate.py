@@ -247,7 +247,7 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,
         firstx=R[int(har/2)][int(har/2 - 1)]
         firsty=R[int(har/2-1)][int(har/2)]
         zeroth=R[int(har/2)][int(har/2)]
-        diag=R[int(har/2+count)][int(har/2+count)]
+        diag=R[int(har/2+1)][int(har/2+1)]
         diags[count]=diag
         firstxs[count]=firstx
         firstys[count]=firsty
