@@ -35,7 +35,7 @@ def makeProf(theta, depthF, nLayers,res, material, gType, path):
     theta = int(theta)
   print(f'profile angle:{theta}')
   while n < nLayers:
-    if theta < 90:
+    if theta > 0:
         arr=np.genfromtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_{depthF}_layer{n}_{res}.csv", delimiter=',')
     else:
         arr=np.genfromtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_layer{n}_{res}.csv", delimiter=',')
