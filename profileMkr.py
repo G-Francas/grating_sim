@@ -28,6 +28,7 @@ def makeProf(theta, depthF, nLayers,res, material, gType, path):
   profA=np.zeros((nLayers*thickness+base,res))
 
   place=0
+  print(f"theta = {theta}")
   if theta != 0:
     theta=90-theta
   print(f'profile angle:{theta}')
