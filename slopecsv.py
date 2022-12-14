@@ -77,8 +77,8 @@ def Slopecsv(res,theta,depthF, material, gType, er, path): #depth is fraction of
     while i < res:
         
         while j>=int(res/4) and j < int(3*res/4):
-            arrE[j,i]=e
-            arrU[j,i]=u
+            arrE[i,j]=e
+            arrU[i,j]=u
             j=j+1
         j=int(res/4)
         i=i+1
