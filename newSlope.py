@@ -7,7 +7,7 @@ def SlopeNew(res,theta,depthF, period, wavelength, material, gType, er, path): #
   periodF = period/wavelength
   dres = depthF/periodF*res
   nLayers = int(input("How many layers should be used for the simulation? (<100): "))
-  dx = np.tan(np.deg2rad(90-theta))/nLayers*dres
+  dx = np.tan(np.deg2rad(theta))/nLayers*dres
 
 
   ##refractive index vals at 400nm
