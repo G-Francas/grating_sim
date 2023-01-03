@@ -16,6 +16,7 @@ import cmath
 import json
 #Modules I've created
 from grating_sim.slopecsv import Slopecsv
+from grating_sim.newSlope import SlopeNew
 from grating_sim.checkcsv import *
 from grating_sim.profileMkr import makeProf
 from grating_sim.plot import plotter
@@ -128,7 +129,9 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,
         if slope != 0:
             if gType=="Rectangular":
                 print(f"Creating layers for rectangular grating with sloped sidewalls, slope={slope} degrees...\n")
-                nLayers = Slopecsv(res,slope,depthF, material, gType, er, path)
+                #nLayers = Slopecsv(res,slope,depthF, material, gType, er, path)
+                nLayers = SlopeNew(res,slope,depthF, period, wavelength, material, gType, er, path)
+
             elif gType == "Blazed":
                 print(f"Creating layers for blazed grating of blaze angle {slope} degrees...\n")
                 nLayers = Blazedcsv(res,slope,depthF, material, gType, er, path)
