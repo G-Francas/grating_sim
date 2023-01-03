@@ -172,14 +172,15 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,
 
         print(f"This simulation requires {nLayers} layers... ")
         #slope=90-slope
+        print(f"During layer creation slope = {slope}")
+
         while n < nLayers:
             
             print(f"creating layer {n+1} of {nLayers}...")
-        
             if slope != 0:
-              eCellData = np.transpose(np.genfromtxt(f'{path}/csvs/{gType}_{material}_slope{90-slope}_{depthF}_layer{count}_{res}.csv', delimiter=',', dtype=complex))
+              eCellData = np.transpose(np.genfromtxt(f'{path}/csvs/{gType}_{material}_slope{90-slope}_{depthF}_layer{n}_{res}.csv', delimiter=',', dtype=complex))
             else:
-                eCellData = np.transpose(np.genfromtxt(f'{path}/csvs/{gType}_{material}_slope0_layer{n}_{res}.csv', delimiter=',', dtype=complex))
+                eCellData = np.transpose(np.genfromtxt(f'{path}/csvs/{gType}_{material}_slope0_layer{0}_{res}.csv', delimiter=',', dtype=complex))
             uCellData = np.transpose(np.genfromtxt(f'{path}/csvs/U{res}.csv', delimiter=','))
             
             
