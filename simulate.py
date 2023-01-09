@@ -41,7 +41,7 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
     period=periods[0]
     har=hars[0]
     res=ress[0]
-    numLayer = layers[0]
+    numLayer = numLayers[0]
     
     
 
