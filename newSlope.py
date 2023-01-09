@@ -8,6 +8,8 @@ def SlopeNew(res,theta,depthF, period, wavelength, material, gType, er, path): #
   dres = depthF/periodF*res
   nLayers = int(input("How many layers should be used for the simulation? (<100): "))
   dx = np.tan(np.deg2rad(theta))/nLayers*dres
+  
+  print(f"PeriodF = {periodF}, dres = {dres}, dx = {dx}")
 
 
   ##refractive index vals at 400nm
@@ -57,11 +59,12 @@ def SlopeNew(res,theta,depthF, period, wavelength, material, gType, er, path): #
         arrU=mat_u*arr
         i=0
         j=int(res/4+count*dx)
+        print(f"j starts at {j}")
         #permittivity
+        print(f"j bounds are: {res/4+count*dx} to {3*res/4-count*dx}")
         while i <res:
             while j >= res/4+count*dx and j < 3*res/4-count*dx: 
                 arrE[i,j]=e
-                arrU[i,j]=u
                 j=j+1
             j=int(res/4+count*dx)
             i=i+1
