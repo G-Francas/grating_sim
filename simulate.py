@@ -33,7 +33,7 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
     periods=period
     hars=har
     ress=res
-    layers = numLayer
+    numLayers = numLayer
     
     depthF=depthFs[0]
     slope=slopes[0]
@@ -126,7 +126,7 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
         period=periods.take([count],mode='clip')[0]
         har=hars.take([count],mode='clip')[0]
         res=ress.take([count],mode='clip')[0]
-        numLayer=layers.take([count],mode='clip')[0]
+        numLayer=numLayers.take([count],mode='clip')[0]
 
         depth=depthF*wavelength
         #generate csv files
