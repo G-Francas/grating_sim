@@ -23,7 +23,7 @@ from grating_sim.plot import plotter
 from grating_sim.squarecsv import *
 from grating_sim.Blazed import Blazedcsv
 from grating_sim.polarization import *
-def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,pTEM, loop, path):
+def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,theta,phi,pTEM, loop, path):
 
     tests=np.size(locals()[loop])
     loops=locals()[loop]
@@ -33,6 +33,7 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,
     periods=period
     hars=har
     ress=res
+    layers = numLayer
     
     depthF=depthFs[0]
     slope=slopes[0]
@@ -40,6 +41,7 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,
     period=periods[0]
     har=hars[0]
     res=ress[0]
+    numLayer = layers[0]
     
     
 
@@ -124,13 +126,15 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,theta,phi,
         period=periods.take([count],mode='clip')[0]
         har=hars.take([count],mode='clip')[0]
         res=ress.take([count],mode='clip')[0]
+        numLayer=layers.take([count],mode='clip')[0]
+
         depth=depthF*wavelength
         #generate csv files
         if slope != 0:
             if gType=="Rectangular":
                 print(f"Creating layers for rectangular grating with sloped sidewalls, slope={slope} degrees...\n")
                 #nLayers = Slopecsv(res,slope,depthF, material, gType, er, path)
-                nLayers = SlopeNew(res,slope,depthF, period, wavelength, material, gType, er, path)
+                nLayers = SlopeNew(res,slope,depthF, period, wavelength, material,numLayer, gType, er, path)
 
             elif gType == "Blazed":
                 print(f"Creating layers for blazed grating of blaze angle {slope} degrees...\n")
