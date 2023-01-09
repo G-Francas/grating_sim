@@ -63,7 +63,7 @@ def SlopeNew(res,theta,depthF, period, wavelength, material, gType, er, path): #
         #permittivity
         print(f"j bounds are: {res/4+count*dx} to {3*res/4-count*dx}")
         while i <res:
-            while j >= res/4+count*dx and j < 3*res/4-count*dx: 
+            while j >= int(res/4+count*dx) and j < int(3*res/4-count*dx): 
                 arrE[i,j]=e
                 j=j+1
             j=int(res/4+count*dx)
