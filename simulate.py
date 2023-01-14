@@ -65,8 +65,8 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
  
 
     #Creating basic layers
+    
     reflectionLayer = Layer(er=1.0006, ur=1, L=10000)
-    baseLayer = Layer(er=er,ur=1, L=10000)
     source = Source(wavelength=wavelength, theta=theta, phi=phi,pTEM=pTEM, layer=reflectionLayer)
 
     
@@ -74,7 +74,8 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
     material_data.source = source
     er = material_data.er
     ur = 1
-    
+    baseLayer = Layer(er=er,ur=1, L=10000)
+
     print(f"Material permittivity er = {er}")
     
     if gType == 'Checkerboard':
