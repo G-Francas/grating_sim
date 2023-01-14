@@ -75,6 +75,8 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
     er = material_data.er
     ur = 1
     
+    print(f"Material permittivity er = {er}")
+    
     if gType == 'Checkerboard':
         print("Creating layers for checkerboard simulation...\n")
         nLayers=Check(res,er, material, gType, path)
