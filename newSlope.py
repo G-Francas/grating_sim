@@ -12,31 +12,7 @@ def SlopeNew(res,theta,depthF, period, wavelength, material, numLayer,gType, er,
   print(f"PeriodF = {periodF}, dres = {dres}, dx = {dx}")
 
 
-  ##refractive index vals at 400nm
-  Air_n = 1.000536
-  Si_n = 5.623
-  Al_n = 0.375150842
-  Ag_n = 0.04572895
  
-
-
-
-  #extinction coefficient vals at 400nm
-  Air_k = 1.00000037
-  Si_k = 0.326
-  Al_k= 4.226433266
-  Ag_k = 2.122943979
-
-  if material == 'Silicon':
-    mat_e=np.square(Si_n)
-    print('grating material = silicon')
-  elif material == 'Aluminium':
-    mat_e=np.square(Al_n)
-    print('grating material = aluminium')
-
-  elif material == 'Silver':
-    mat_e=np.square(Ag_n)
-    print('grating material = silver')
   mat_u=1
   e=1.0006
   u= 1
@@ -46,13 +22,7 @@ def SlopeNew(res,theta,depthF, period, wavelength, material, numLayer,gType, er,
   arr=(1+0j)*arr
   print(theta)
   if theta > 0:
-      print(f"new sloped")
-      
-      arrE=er*arr
-      arrU=mat_u*arr
       count=0
-      i=0
-      j=int(res/4)
       print(f'creating {nLayers} csv files for simulation...\n')
       while count < nLayers:
         arrE=er*arr
