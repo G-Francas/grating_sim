@@ -1,5 +1,6 @@
 
 #Additional modules that RCWA code requires
+from rcwa import Material
 import grating_sim.context
 import numpy as np
 import matplotlib.pyplot as plt
