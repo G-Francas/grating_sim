@@ -10,7 +10,7 @@ def Slopecsv(res,theta,depthF, material, gType, er, path): #depth is fraction of
   #values for air
   e=1.0006
   u= 1
-
+  mat_u=1
   arr=np.ones([res,res])
   Uarr=arr
   np.savetxt(f'{path}/csvs/U{res}.csv', Uarr, delimiter=',')
