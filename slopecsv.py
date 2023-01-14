@@ -6,36 +6,6 @@ def Slopecsv(res,theta,depthF, material, gType, er, path): #depth is fraction of
   duty=0.5
   
 
-  ##refractive index vals at 400nm
-  Air_n = 1.000536
-  Si_n = 5.623
-  Al_n = 0.48787
-  #Al_n = 0.375150842
-  Ag_n = 0.04572895
- 
-
-
-
-  #extinction coefficient vals at 400nm
-  Air_k = 1.00000037
-  Si_k = 0.326
-  Al_k = 4.8355
-  #Al_k= 4.226433266
-  Ag_k = 2.122943979
-  print(f"Grating Material {material}, test test")
-
-  er_si=(Si_n)**2-(Si_k)**2+2*Si_n*Si_k*1j
-  if material == 'Silicon':
-      er=er_si
-  elif material == 'Aluminium':
-      er=(Al_n)**2-(Al_k)**2+2*Al_n*Al_k*1j
-  elif material == 'Silver':
-      er=(Ag_n)**2-(Ag_k)**2+2*Ag_n*Ag_k*1j
-  elif material == 'Gold':
-      er=(Au_n)**2-(Au_k)**2+2*Au_n*Au_k*1j
-  elif material == 'Titanium':
-      er=(Ti_n)**2-(Ti_k)**2+2*Ti_n*Ti_k*1j
-  mat_u=1
   
   #values for air
   e=1.0006
@@ -46,7 +16,6 @@ def Slopecsv(res,theta,depthF, material, gType, er, path): #depth is fraction of
   np.savetxt(f'{path}/csvs/U{res}.csv', Uarr, delimiter=',')
 
   arr=(1+0j)*arr
-  print(theta)
   if theta > 0:
       thetaR=np.deg2rad(theta)
       nLayer=int(np.divide(2,3)*res*depthF*np.tan(thetaR))
