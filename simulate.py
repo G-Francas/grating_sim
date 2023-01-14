@@ -46,33 +46,22 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
     
 
     print(f"\nSimulating a {gType} diffraction grating made of {material}....")
-    ##refractive index vals at 400nm
-    Si_n = 5.5674
-
-    Al_n = 0.48787
-    Ag_n = 0.05
-    Au_n=1.4684
-    Ti_n=2.0913
+   
     
-    #extinction coefficient vals at 400nm
-    Si_k = 0.38612
-  
-    Al_k= 4.8355
-    Ag_k = 2.1035
-    Au_k=1.9530
-    Ti_k=2.9556
-    
-    er_si=(Si_n)**2-(Si_k)**2+2*Si_n*Si_k*1j
     if material == 'Silicon':
-        er=er_si
+        mat_name = 'Si'
     elif material == 'Aluminium':
-        er=(Al_n)**2-(Al_k)**2+2*Al_n*Al_k*1j
+        mat_name = 'Al'
+
     elif material == 'Silver':
-        er=(Ag_n)**2-(Ag_k)**2+2*Ag_n*Ag_k*1j
+        mat_name = 'Ag'
+
     elif material == 'Gold':
-        er=(Au_n)**2-(Au_k)**2+2*Au_n*Au_k*1j
+        mat_name = 'Au'
+
     elif material == 'Titanium':
-        er=(Ti_n)**2-(Ti_k)**2+2*Ti_n*Ti_k*1j
+        mat_name = 'Ti'
+
  
 
     #Creating basic layers
@@ -80,6 +69,12 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
     baseLayer = Layer(er=er,ur=1, L=10000)
     source = Source(wavelength=wavelength, theta=theta, phi=phi,pTEM=pTEM, layer=reflectionLayer)
 
+    
+    material_data = Material(mat_name)
+    material_data.source = source
+    er = material_data.er
+    ur = 1
+    
     if gType == 'Checkerboard':
         print("Creating layers for checkerboard simulation...\n")
         nLayers=Check(res,er, material, gType, path)
