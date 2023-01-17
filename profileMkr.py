@@ -44,7 +44,7 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
     
     count=0
     while count < rowPLayer:
-        profA[place+count]=arr[1,:]
+        profA[place+count]=arr[2,:]
         count=count+1
 
     n=n+1
@@ -56,8 +56,9 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   while i < x:
       j=0
       while j <y:
-          if math.isclose(profA[i][j],1,abs_tol=0.01):
+          if math.isclose(profA[i][j],1,abs_tol=0.1):
               profA[i][j]=1
+              print('test, close to 1')
           else:
               profA[i][j]=0
           j=j+1
