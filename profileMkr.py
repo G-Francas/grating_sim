@@ -17,6 +17,18 @@ from IPython.display import Image as Mirage
 
 import sys
 
+def upScale(arr, scaleFactor):
+    bigArr = np.zeros(np.size(arr)*scaleFactor)
+    place=0
+    for i in arr:
+        repeat=0
+        while repeat < scaleFactor:
+            bigArr[place+repeat] = i
+            repeat+= 1
+        place += scaleFactor
+    return bigArr
+
+
 
 def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, path):
   nm= 10**(-9)
@@ -34,10 +46,12 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   if rowPLayer < 1:
         dres = dres*100
         res = res*100
+        scaleFac = 100
         rowPLayer = int(rowPLayer*100)
   elif rowPLayer < 10:
         dres = dres*10
         res = res*10
+        scaleFac=10
         rowPLayer = int(rowPLayer*10)
   print(f'After alter rows per layer = {rowPLayer}, res = {res}, dres ={dres}')
 
@@ -55,7 +69,7 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
     
     count=0
     while count < rowPLayer:
-        profA[place+count]=arr[2,:]
+        profA[place+count]=upScale(arr[2,:], scaleFac)
         count=count+1
 
     n=n+1
