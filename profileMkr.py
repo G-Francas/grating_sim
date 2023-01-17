@@ -29,14 +29,11 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   
   profA=np.zeros((2*dres,res))
   rowPLayer = int(dres/nLayers)
-  print(f'rows per layer = {rowPLayer}. dres ={dres}, nLayers={nLayers}')
   place=0
-  print(f"theta in profile maker before adjust = {theta}")
   if theta != 0:
     theta=90-theta
   else:
     theta = int(theta)
-  print(f'profile angle:{theta}')
   while n < nLayers:
     if theta > 0:
         arr=np.loadtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_{depthF}_layer{n}_{res}.csv", delimiter=',',dtype=np.complex128).view(complex)
@@ -45,7 +42,6 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
     
     count=0
     while count < rowPLayer:
-        print(f'making slope {arr[2,:]}')
         profA[place+count]=arr[2,:]
         count=count+1
 
@@ -60,7 +56,6 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
       while j <y:
           if math.isclose(profA[i][j].real,1,abs_tol=0.1):
               profA[i][j]=1
-              print('test, close to 1')
           else:
               profA[i][j]=0
           j=j+1
