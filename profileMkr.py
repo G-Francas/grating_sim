@@ -56,7 +56,8 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   while i < x:
       j=0
       while j <y:
-          if math.isclose(profA[i][j],1,abs_tol=0.1):
+          print(profA[i][j])
+          if math.isclose(profA[i][j].real,1,abs_tol=0.1):
               profA[i][j]=1
               print('test, close to 1')
           else:
