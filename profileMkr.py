@@ -43,6 +43,7 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
         arr=np.genfromtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_layer{n}_{res}.csv", delimiter=',')
     
     count=0
+    print(arr[2,:], type(arr[2,:]))
     while count < rowPLayer:
         profA[place+count]=arr[2,:]
         count=count+1
