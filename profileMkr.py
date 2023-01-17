@@ -26,7 +26,7 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
 
   depth = depthF*wavelength
   dres = int(res*depth/period)
-        
+  resOG = res       
   
   profA=np.zeros((2*dres,res))
   rowPLayer = dres/nLayers
@@ -49,9 +49,9 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
     theta = int(theta)
   while n < nLayers:
     if theta > 0:
-        arr=np.loadtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_{depthF}_layer{n}_{res}.csv", delimiter=',',dtype=np.complex128).view(complex)
+        arr=np.loadtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_{depthF}_layer{n}_{resOG}.csv", delimiter=',',dtype=np.complex128).view(complex)
     else:
-        arr=np.loadtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_layer{n}_{res}.csv", delimiter=',',dtype=np.complex128).view(complex)
+        arr=np.loadtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_layer{n}_{resOG}.csv", delimiter=',',dtype=np.complex128).view(complex)
     
     count=0
     while count < rowPLayer:
@@ -78,6 +78,6 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   im=im.convert('L')
 #   if im.mode != 'RGB':
 #     im = im.convert('RGB')
-  im.save(f"{path}/profiles/sloped{theta}_depth{depthF}_res{res}.jpg")
+  im.save(f"{path}/profiles/sloped{theta}_depth{depthF}_res{resOG}.jpg")
   
   return im
