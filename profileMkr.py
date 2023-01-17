@@ -29,6 +29,7 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   
   profA=np.zeros((2*dres,res))
   rowPLayer = int(dres/nLayers)
+  print(rowPLayer)
   place=0
   print(f"theta in profile maker before adjust = {theta}")
   if theta != 0:
