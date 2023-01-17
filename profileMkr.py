@@ -38,9 +38,9 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   print(f'profile angle:{theta}')
   while n < nLayers:
     if theta > 0:
-        arr=np.loadtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_{depthF}_layer{n}_{res}.csv", delimiter=',').view(complex)
+        arr=np.loadtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_{depthF}_layer{n}_{res}.csv", delimiter=',',dtype=np.complex128).view(complex)
     else:
-        arr=np.loadtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_layer{n}_{res}.csv", delimiter=',').view(complex)
+        arr=np.loadtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_layer{n}_{res}.csv", delimiter=',',dtype=np.complex128).view(complex)
     
     count=0
     print(arr[2,:], type(arr[2,:]))
