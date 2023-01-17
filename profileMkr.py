@@ -42,7 +42,6 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   
   
   rowPLayer = dres/nLayers
-  print(f'rows per layer = {rowPLayer}, res = {res}, dres ={dres}')
   scaleFac=1
   if rowPLayer < 1:
         dres = dres*100
@@ -54,8 +53,7 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
         res = res*10
         scaleFac=10
         rowPLayer = int(rowPLayer*10)
-  print(f'After alter rows per layer = {rowPLayer}, res = {res}, dres ={dres}')
-
+  rowPLayer = int(rowPLayer)
   profA=np.zeros((2*dres,res))     
   place=0
   if theta != 0:
