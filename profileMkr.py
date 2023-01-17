@@ -25,7 +25,7 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
 
 
   depth = depthF*wavelength
-  dres = res*depth/period
+  dres = int(res*depth/period)
   
   profA=np.zeros((2*dres,res))
   rowPLayer = int(dres/nLayers)
