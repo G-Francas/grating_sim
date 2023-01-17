@@ -18,17 +18,19 @@ from IPython.display import Image as Mirage
 import sys
 
 
-def makeProf(theta, depthF, nLayers,res, material, gType, path):
+def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, path):
   nm= 10**(-9)
   um=10**(-6)
   n=0
-  layers=1000/(600*nm)*depthF*400*nm
-  thickness=int(layers/nLayers)
-  base=int(1000/6)
-  profA=np.zeros((nLayers*thickness+base,res))
 
+
+  depth = depthF*wavelength
+  dres = res*depth/period
+  
+  profA=np.zeros((2*dres,res))
+  rowPLayer = int(dres/nLayers)
   place=0
-  print(f"theta = {theta}")
+  print(f"theta in profile maker before adjust = {theta}")
   if theta != 0:
     theta=90-theta
   else:
@@ -41,8 +43,8 @@ def makeProf(theta, depthF, nLayers,res, material, gType, path):
         arr=np.genfromtxt(f"{path}/csvs/{gType}_{material}_slope{theta}_layer{n}_{res}.csv", delimiter=',')
     
     count=0
-    while count < thickness:
-        profA[place+count]=arr[21,:]
+    while count < rowPLayer:
+        profA[place+count]=arr[1,:]
         count=count+1
 
     n=n+1
