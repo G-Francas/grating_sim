@@ -87,7 +87,15 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
           j=j+1
       i=i+1
   profA=profA*255
-  im = Image.fromarray(profA)
+  prof_repeat = np.zeros([profA.shape[0],3*profA.shape[1]])
+  row = np.array([])
+  for i in profA:
+    row = np.append(row,i)
+    row = np.append(row,i)
+
+    prof_repeat[count,:] = row
+    count+=1
+  im = Image.fromarray(prof_repeat)
   im=im.convert('L')
 #   if im.mode != 'RGB':
 #     im = im.convert('RGB')
