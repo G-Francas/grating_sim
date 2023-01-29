@@ -33,7 +33,7 @@ def plotter(firstxs,firstys,zeros,diags,R,loop, gType, tests,count, profile, slo
     
     if profile:
         img=makeProf(wavelength, period,slope,depthF,nLayers,res, material, gType, path)
-        plt.figure(figsize=(6,2)
+        plt.figure(figsize=(6,2))
         plt.imshow(img)
         display.display(plt.gcf())
     return 
