@@ -92,6 +92,9 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   for i in profA:
     row = np.append(row,i)
     row = np.append(row,i)
+    row = np.append(row,i)
+
+    
 
     prof_repeat[count,:] = row
     count+=1
