@@ -89,6 +89,7 @@ def makeProf(wavelength, period, theta, depthF, nLayers,res, material, gType, pa
   profA=profA*255
   prof_repeat = np.zeros([profA.shape[0],3*profA.shape[1]])
   row = np.array([])
+  count=0
   for i in profA:
     row = np.array([])
 
