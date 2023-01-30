@@ -44,7 +44,6 @@ def sim_setup(gType,depthF,slope,profile,wavelength,period,har,res,material,numL
     
     
 
-    print(f"\nSimulating a {gType} diffraction grating made of {material}....")
    
     
     if material == 'Silicon':
@@ -75,7 +74,6 @@ def sim_setup(gType,depthF,slope,profile,wavelength,period,har,res,material,numL
     ur = 1
     baseLayer = Layer(er=er,ur=1, L=10000)
 
-    print(f"Material permittivity er = {er}")
     
     if gType == 'Checkerboard':
         print("Creating layers for checkerboard simulation...\n")
