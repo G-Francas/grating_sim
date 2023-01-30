@@ -43,6 +43,8 @@ def plotter(firstxs,firstys,zeros,diags,R,loop, gType, tests,count, profile, slo
         # Turn off tick labels
         ax.set_yticklabels([])
         ax.set_xticklabels([])
+        ax.set_xticks([])
+        ax.set_yticks([])
 
         plt.imshow(img)
         display.display(plt.gcf())
