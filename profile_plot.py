@@ -8,7 +8,7 @@ import warnings
 
 def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength, period, path):
     if profile:
-            warnings.filterwarnings("ignore", 'matplotlib.legend:No handles with labels found to put in legend.')
+            warnings.filterwarnings("ignore", 'No handles with labels found to put in legend.')
 
             img=makeProf(wavelength, period,slope,depthF,nLayers,res, material, gType, path)
             x=plt.figure(figsize=(12,4))
