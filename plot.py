@@ -34,11 +34,12 @@ def plotter(firstxs,firstys,zeros,diags,R,loop, gType, tests,count, profile, slo
     if profile:
         img=makeProf(wavelength, period,slope,depthF,nLayers,res, material, gType, path)
         plt.figure(figsize=(12,4))
-        plt.xlabel(f"Period = {period} nm")
-        plt.ylabel(f"Depth = {depthF*wavelength} nm")
+        
         ax=plt.gca()
         ax.get_xaxis().set_visible(False)
         ax.get_yaxis().set_visible(False)
+        plt.xlabel(f"Period = {period} nm")
+        plt.ylabel(f"Depth = {depthF*wavelength} nm")
 
         plt.imshow(img)
         display.display(plt.gcf())
