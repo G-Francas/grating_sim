@@ -174,7 +174,7 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
         layers=np.empty(nLayers, Layer)
         print(f"Performing simulation trial {count+1} of {tests}, with {loop}={loops[count]}...")
         print("Profile: ")
-        prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength, period, path):
+        prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength, period, path)
         print(f"This simulation requires {nLayers} layers... ")
         #slope=90-slope
         print(f"During layer creation slope = {slope}")
