@@ -4,11 +4,12 @@ from IPython import display
 import numpy as np
 import math
 import warnings
-
+warnings.filterwarnings( "ignore", module = "matplotlib\..*" )
 
 def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength, period, path):
+    warnings.filterwarnings( "ignore", module = "matplotlib\..*" )
+
     if profile:
-            warnings.filterwarnings("ignore", 'No handles with labels found to put in legend.')
 
             img=makeProf(wavelength, period,slope,depthF,nLayers,res, material, gType, path)
             x=plt.figure(figsize=(12,4))
