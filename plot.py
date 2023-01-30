@@ -46,7 +46,8 @@ def plotter(firstxs,firstys,zeros,diags,R,loop, gType, tests,count, profile, slo
         ax.set_xticks([])
         ax.set_yticks([])
 
-        plt.imshow(img)
+        plt.imshow(img, cmap='hot')
+        plt.colorbar()
         display.display(plt.gcf())
     return 
     
