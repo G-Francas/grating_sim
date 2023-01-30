@@ -37,8 +37,8 @@ def plotter(firstxs,firstys,zeros,diags,R,loop, gType, tests,count, profile, slo
         
         ax=plt.gca()
         
-        ax.set_ylabel(f"Depth = {depthF*wavelength} nm")
-        ax.set_xlabel(f"Period = {period} nm")
+        ax.set_ylabel(f"Depth = {depthF*wavelength*1000} nm")
+        ax.set_xlabel(f"Period = {period*1000} nm")
 
         # Turn off tick labels
         ax.set_yticklabels([])
