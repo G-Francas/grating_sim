@@ -22,7 +22,7 @@ def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength,
             ax.set_xticklabels([])
             ax.set_xticks([])
             ax.set_yticks([])
-            legend=plt.legend(title = f"{material}", loc='lower left', frameon = False, title_fontsize='large')
+            legend=ax.legend(title = f"{material}", loc='lower left', frameon = False, title_fontsize='large')
             plt.setp(legend.get_title(), color='white')
             plt.imshow(img, cmap='hot')
             display.display(plt.gcf())
