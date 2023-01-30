@@ -17,17 +17,17 @@ def plotter(firstxs,firstys,zeros,diags,R,loop, gType, tests,count, profile, slo
     display.display(plt.gcf())
     
     
-    efficiency=np.append(R[int(har/2),:], R[:,int(har/2)])
-    xs=np.append(10*np.tan(angles), np.zeros(np.shape(angles)))
-    ys=np.append(np.zeros(np.shape(angles)), 10*np.tan(angles))
+#     efficiency=np.append(R[int(har/2),:], R[:,int(har/2)])
+#     xs=np.append(10*np.tan(angles), np.zeros(np.shape(angles)))
+#     ys=np.append(np.zeros(np.shape(angles)), 10*np.tan(angles))
     
-    plt.figure()
-    plt.scatter(xs,ys,s=efficiency*10000, c=efficiency,cmap='autumn')
-    plt.colorbar(label='efficiency')
-    plt.title("Diffracted mode positions 1cm above grating")
-    plt.ylabel("y direction position in mm ")
-    plt.xlabel("x direction position in mm")
-    display.display(plt.gcf())
+#     plt.figure()
+#     plt.scatter(xs,ys,s=efficiency*10000, c=efficiency,cmap='autumn')
+#     plt.colorbar(label='efficiency')
+#     plt.title("Diffracted mode positions 1cm above grating")
+#     plt.ylabel("y direction position in mm ")
+#     plt.xlabel("x direction position in mm")
+#     display.display(plt.gcf())
 
 
     
