@@ -15,6 +15,7 @@ def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength,
             
             ax.set_ylabel(f"Depth = {depthF*wavelength*1000} nm")
             ax.set_xlabel(f"Period = {period*1000} nm")
+            warnings.filterwarnings("ignore")
 
             # Turn off tick labels
             ax.set_yticklabels([])
@@ -22,7 +23,6 @@ def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength,
             ax.set_xticks([])
             ax.set_yticks([])
             legend=plt.legend(title = f"{material}", loc='lower left', frameon = False, title_fontsize='large')
-            warnings.filterwarnings("ignore")
             plt.setp(legend.get_title(), color='white')
             plt.imshow(img, cmap='hot')
             display.display(plt.gcf())
