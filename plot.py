@@ -36,10 +36,13 @@ def plotter(firstxs,firstys,zeros,diags,R,loop, gType, tests,count, profile, slo
         plt.figure(figsize=(12,4))
         
         ax=plt.gca()
-        ax.get_xaxis().set_visible(False)
-        ax.get_yaxis().set_visible(False)
-        plt.xlabel(f"Period = {period} nm")
-        plt.ylabel(f"Depth = {depthF*wavelength} nm")
+        
+        ax.set_ylabel(f"Depth = {depthF*wavelength} nm")
+        ax.set_xlabel(f"Period = {period} nm")
+
+        # Turn off tick labels
+        ax.set_yticklabels([])
+        ax.set_xticklabels([])
 
         plt.imshow(img)
         display.display(plt.gcf())
