@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from IPython import display
 import numpy as np
 import math
+import warnings
 
 
 def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength, period, path):
@@ -21,6 +22,7 @@ def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength,
             ax.set_xticks([])
             ax.set_yticks([])
             legend=plt.legend(title = f"{material}", loc='lower left', frameon = False, title_fontsize='large')
+            warnings.filterwarnings("ignore")
             plt.setp(legend.get_title(), color='white')
             plt.imshow(img, cmap='hot')
             display.display(plt.gcf())
