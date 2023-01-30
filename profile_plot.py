@@ -8,6 +8,8 @@ import warnings
 
 def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength, period, path):
     if profile:
+            warnings.filterwarnings("ignore", 'matplotlib.legend:No handles with labels found to put in legend.')
+
             img=makeProf(wavelength, period,slope,depthF,nLayers,res, material, gType, path)
             x=plt.figure(figsize=(12,4))
             
@@ -15,7 +17,6 @@ def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength,
             
             ax.set_ylabel(f"Depth = {depthF*wavelength*1000} nm")
             ax.set_xlabel(f"Period = {period*1000} nm")
-            warnings.filterwarnings("ignore")
 
             # Turn off tick labels
             ax.set_yticklabels([])
@@ -25,4 +26,5 @@ def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength,
             legend=ax.legend(title = f"{material}", loc='lower left', frameon = False, title_fontsize='large')
             plt.setp(legend.get_title(), color='white')
             plt.imshow(img, cmap='hot')
-            x=display.display(plt.gcf())
+#             display.display(plt.gcf())
+            
