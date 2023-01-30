@@ -20,6 +20,7 @@ from grating_sim.slopecsv import Slopecsv
 from grating_sim.newSlope import SlopeNew
 from grating_sim.checkcsv import *
 from grating_sim.profileMkr import makeProf
+from grating_sim.profile_plot import prof_plot
 from grating_sim.plot import plotter
 from grating_sim.squarecsv import *
 from grating_sim.Blazed import Blazedcsv
@@ -172,7 +173,8 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
         n=0
         layers=np.empty(nLayers, Layer)
         print(f"Performing simulation trial {count+1} of {tests}, with {loop}={loops[count]}...")
-
+        print("Profile: ")
+        prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength, period, path):
         print(f"This simulation requires {nLayers} layers... ")
         #slope=90-slope
         print(f"During layer creation slope = {slope}")
