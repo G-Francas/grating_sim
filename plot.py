@@ -45,7 +45,7 @@ def plotter(firstxs,firstys,zeros,diags,R,loop, gType, tests,count, profile, slo
         ax.set_xticklabels([])
         ax.set_xticks([])
         ax.set_yticks([])
-        legend=plt.legend(title = "f{material}", loc='lower left', frameon = False)
+        legend=plt.legend(title = f"{material}", loc='lower left', frameon = False, title_fontsize='large')
         plt.setp(legend.get_title(), color='white')
         plt.imshow(img, cmap='hot')
         display.display(plt.gcf())
