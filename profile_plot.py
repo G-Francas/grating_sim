@@ -9,7 +9,7 @@ import warnings
 def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength, period, path):
     if profile:
             img=makeProf(wavelength, period,slope,depthF,nLayers,res, material, gType, path)
-            plt.figure(figsize=(12,4))
+            x=plt.figure(figsize=(12,4))
             
             ax=plt.gca()
             
@@ -25,4 +25,4 @@ def prof_plot(gType, profile, slope, depthF, nLayers, res, material, wavelength,
             legend=ax.legend(title = f"{material}", loc='lower left', frameon = False, title_fontsize='large')
             plt.setp(legend.get_title(), color='white')
             plt.imshow(img, cmap='hot')
-            display.display(plt.gcf())
+            x=display.display(plt.gcf())
