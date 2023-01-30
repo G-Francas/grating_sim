@@ -47,7 +47,7 @@ def plotter(firstxs,firstys,zeros,diags,R,loop, gType, tests,count, profile, slo
         ax.set_yticks([])
         leg=plt.legend(title = "f{material}", loc='lower left', frameon = False)
         for text in leg.get_texts():
-            plt.setp(text, color = 'w')
+            text.set_color("white")
         plt.imshow(img, cmap='hot')
         display.display(plt.gcf())
     return 
