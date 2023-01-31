@@ -5,6 +5,7 @@ import grating_sim.context
 import numpy as np
 import matplotlib.pyplot as plt
 import unittest
+import pandas as pd
 from grating_sim.shorthand import *
 from grating_sim.matrices import *
 from grating_sim.fresnel import *
@@ -280,5 +281,7 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
     plt.title(f"Efficiency of {gType} {material} grating at different {loop} ")
     tuple=(loops, zeros, firstxs, firstys, diags)
     results=np.vstack(tuple)
-    np.savetxt(f"{path}/results/{gType}_{loop}_tests({tests})_{wavelength}_{period}.csv",results , delimiter=",")
+    results_df=pd.DataFrame(results, index = [f'{loop}', 'zeroth order', 'first order x direction', 'first order y direction', 'first order diagonal'])
+    results_df.to_csv(f"{path}/results/{gType}_{loop}_tests({tests})_{wavelength}_{period}.csv")
+#     np.savetxt(f"{path}/results/{gType}_{loop}_tests({tests})_{wavelength}_{period}.csv",results , delimiter=",")
     return 0
