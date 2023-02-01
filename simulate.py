@@ -64,6 +64,8 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
 
     elif material == 'Titanium':
         mat_name = 'Ti'
+    else:
+        mat_name = 'Si'
     
         
 
