@@ -64,6 +64,8 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
 
     elif material == 'Titanium':
         mat_name = 'Ti'
+    
+        
 
  
 
@@ -77,6 +79,9 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
     material_data.source = source
     er = material_data.er
     ur = 1
+    
+    if material == 'Test':
+        er = -58.15+0.5*i
     baseLayer = Layer(er=er,ur=1, L=10000)
 
     print(f"Material permittivity er = {er}")
