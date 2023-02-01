@@ -86,7 +86,8 @@ def sim(gType,depthF,slope,profile,wavelength,period,har,res,material,numLayer,t
         #er = -58.15+0.5j - produces wacky wacky results
         #er=0.0196-31.36j - produces similar trend to silicon
         #er = -8.75+3j - similar trend
-        er=2-5j
+        #er=2-5j - similar trend
+        er=-20-10j
     baseLayer = Layer(er=er,ur=1, L=10000)
 
     print(f"Material permittivity er = {er}")
